@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_enviar"
+        android:layout_width="331dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="476dp"
+        android:backgroundTint="#5e8a75"
+        android:onClick="EnviarSMS"
+        android:text="Iniciar Serviço"
+        app:icon="@android:drawable/ic_media_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/id_token"
+        android:layout_width="334dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="43dp"
+        android:ems="10"
+        android:hint="Token"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button_enviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
