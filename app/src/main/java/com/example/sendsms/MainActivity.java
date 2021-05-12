@@ -110,15 +110,27 @@ public class MainActivity extends AppCompatActivity implements Runnable {
             String json = response.body().string();
             Gson gs = new Gson();
             Map obj = gs.fromJson(json,Map.class);
-            String a = gs.toJson(obj.get("obj"));
-            ObjectMapper objM = new ObjectMapper();
-            List<Mensagem> men = objM.readValue(a, new TypeReference<List<Mensagem>>(){});
-            tx_log.post(new Runnable() {
-                public void run() {
-                    tx_log.append("\n Busca Concluida encontrado "+men.size()+" SMs");
+            if(obj.get("ret").equals("success")){
+                String a = gs.toJson(obj.get("obj"));
+                ObjectMapper objM = new ObjectMapper();
+                List<Mensagem> men = objM.readValue(a, new TypeReference<List<Mensagem>>(){});
+                tx_log.post(new Runnable() {
+                    public void run() {
+                        tx_log.append("\n Busca Concluida encontrado "+men.size()+" SMs");
+                    }
+                });
+                if(men.size() > 0){
+                    sendMessage(men);
                 }
-            });
-            sendMessage(men);
+            }
+            else{
+                tx_log.post(new Runnable() {
+                    public void run() {
+                        tx_log.append("\n Falha Encontrada: "+obj.get("motivo"));
+                    }
+                });
+            }
+
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
