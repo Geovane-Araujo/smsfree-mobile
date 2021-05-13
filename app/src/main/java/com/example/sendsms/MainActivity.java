@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     public static int button;
     public static String log = "";
     public static TextView tx_log;
-    public static String url = "http://192.168.0.104:8088/sms/v1/checkshipping";
+    public static String url = "http://209.145.59.121/sms/v1/checkshipping";
+    //public static String url = "http://192.168.1.191/sms/v1/checkshipping";
     public static String token;
 
     @Override
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
 
     public void sendMessage(List<Mensagem> mensagens){
         SmsManager smsManager = SmsManager.getDefault();
+
         int i = 0;
         try{
 
