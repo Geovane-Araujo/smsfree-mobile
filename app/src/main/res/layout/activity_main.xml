@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#5e8a75"
+        android:backgroundTint="#622774"
         android:onClick="EnviarSMS"
         android:text="Iniciar Serviço"
         app:icon="@android:drawable/ic_media_play"
