@@ -109,7 +109,15 @@ public class MainActivity extends AppCompatActivity implements Runnable {
                 List<Mensagem> men = objM.readValue(a, new TypeReference<List<Mensagem>>(){});
                 tx_log.post(new Runnable() {
                     public void run() {
-                        tx_log.append("\n Busca Concluida encontrado "+men.size()+" SMs");
+                        String tex = String.valueOf(tx_log.getText());
+                        if(tex.length() > 4000){
+                           tex = tex.substring(300, tex.length());
+                           tx_log.setText(tex);
+                        }
+                        else{
+                            tx_log.append("\n Busca Concluida encontrado "+men.size()+" SMs");
+                        }
+
                     }
                 });
                 if(men.size() > 0){
