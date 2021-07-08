@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     public static int button;
     public static String log = "";
     public static TextView tx_log;
-    public static String url = "https://apisms.adonaisft.com.br/sms/v1/checkshipping";
+    public static String url = "https://sendsms.tech/api/v2/checkshipping";
     //public static String url = "http://192.168.1.191/sms/v1/checkshipping";
     public static String token;
 

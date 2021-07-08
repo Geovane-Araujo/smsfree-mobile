@@ -13,7 +13,6 @@
         android:ems="10"
         android:hint="Token"
         android:inputType="textPersonName"
-        android:text="admin"
         app:layout_constraintBottom_toTopOf="@+id/button_enviar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
