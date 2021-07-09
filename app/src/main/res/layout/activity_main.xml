@@ -13,6 +13,7 @@
         android:ems="10"
         android:hint="Token"
         android:inputType="textPersonName"
+        android:text="gFqd36OYCwxib5nw0NMz"
         app:layout_constraintBottom_toTopOf="@+id/button_enviar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"

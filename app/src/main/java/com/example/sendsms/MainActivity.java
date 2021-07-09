@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     protected void onCreate(Bundle savedInstanceState) {
         ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_SMS},10);
         ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.RECEIVE_SMS},10);
-        // ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_RESPOND_VIA_MESSAGE};
+        // ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_RESPOND_VIA_MESSAGE,},10);
         ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.INTERNET},15);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
 
             for(Mensagem men: mensagens){
                 for(Destino des : men.getDestinatarios()){
+                    Thread.sleep(5000);
                     final ArrayList<String> parts = smsManager.divideMessage(men.getMensagem());
                     smsManager.sendMultipartTextMessage(des.getFone(),null,parts, null,null);
                     tx_log.post(new Runnable() {
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
             Request request = new Request.Builder()
                     .url(url)
                     .method("GET", null)
-                    .addHeader("Authorization", token)
+                    .addHeader("Authorization", "Bearer " + token)
                     .build();
             Response response = client.newCall(request).execute();
             String json = response.body().string();
