@@ -61,13 +61,12 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     }
 
     public void sendMessage(List<Mensagem> mensagens){
-        SmsManager smsManager = SmsManager.getDefault();
-
         int i = 0;
         try{
 
             for(Mensagem men: mensagens){
                 for(Destino des : men.getDestinatarios()){
+                    SmsManager smsManager = SmsManager.getDefault();
                     Thread.sleep(5000);
                     final ArrayList<String> parts = smsManager.divideMessage(men.getMensagem());
                     smsManager.sendMultipartTextMessage(des.getFone(),null,parts, null,null);
