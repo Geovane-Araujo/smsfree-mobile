@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     public static String log = "";
     public static TextView tx_log;
     public static String url = "https://sendsms.tech/api/v2/checkshipping";
-    //public static String url = "http://192.168.1.191/sms/v1/checkshipping";
     public static String token;
 
     @Override
@@ -37,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements Runnable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    }
+
+    public void clear(View v){
+        tx_log.setText("");
     }
 
     public void EnviarSMS(View v) {
@@ -63,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     public void sendMessage(List<Mensagem> mensagens){
         int i = 0;
         try{
-
             for(Mensagem men: mensagens){
                 for(Destino des : men.getDestinatarios()){
                     SmsManager smsManager = SmsManager.getDefault();
@@ -72,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements Runnable {
                     smsManager.sendMultipartTextMessage(des.getFone(),null,parts, null,null);
                     tx_log.post(new Runnable() {
                         public void run() {
+                            if(tx_log.getText().length() == 4000){
+                                tx_log.setText("");
+                            }
                             tx_log.append("\n Enviado para:  " + des.getFone());
                         }
                     });
