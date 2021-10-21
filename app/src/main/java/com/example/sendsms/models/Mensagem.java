@@ -1,4 +1,4 @@
-package com.example.sendsms;
+package com.example.sendsms.models;
 
 import java.sql.Timestamp;
 import java.util.List;

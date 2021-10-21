@@ -1,4 +1,4 @@
-package com.example.sendsms;
+package com.example.sendsms.models;
 
 public class Destino {
     private String fone;
