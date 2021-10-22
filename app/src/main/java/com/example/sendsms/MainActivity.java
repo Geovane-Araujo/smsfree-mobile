@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity implements Runnable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_SMS},10);
-        ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.RECEIVE_SMS},10);
-        // ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_RESPOND_VIA_MESSAGE,},10);
-        ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.INTERNET},15);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

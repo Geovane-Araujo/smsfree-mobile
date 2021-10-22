@@ -22,8 +22,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:hint="NOme"
-        android:id="@+id/txt_nome"
+        android:hint="Nome"
+        android:id="@+id/txt_registro_nome"
         android:inputType="textEmailAddress"
         android:layout_height="wrap_content"/>
     <EditText
@@ -40,6 +40,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:id="@+id/txt_registro_senha"
         android:hint="Senha"
         android:inputType="textPassword"
         android:layout_width="match_parent"
@@ -50,6 +51,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
+        android:onClick="onRegistro"
         android:layout_height="wrap_content"
         android:text="Registrar">
     </Button>

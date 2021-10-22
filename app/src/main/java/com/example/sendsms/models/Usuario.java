@@ -1,6 +1,6 @@
 package com.example.sendsms.models;
 
-public class Usuário {
+public class Usuario {
 
     public Boolean add = true;
     public Boolean edit = false;
