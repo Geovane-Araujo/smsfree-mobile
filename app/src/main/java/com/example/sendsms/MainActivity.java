@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.sendsms.models.Destino;
 import com.example.sendsms.models.Mensagem;
+import com.example.sendsms.models.Usuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Usuario us = (Usuario) getIntent().getSerializableExtra("usuario");
+        TextView tk = (TextView)findViewById(R.id.id_token);
+        tk.setText(us.getToken());
 
     }
 
@@ -108,7 +112,9 @@ public class MainActivity extends AppCompatActivity implements Runnable {
             Response response = client.newCall(request).execute();
             String json = response.body().string();
             Gson gs = new Gson();
+
             Map obj = gs.fromJson(json,Map.class);
+
             if(obj.get("ret").equals("success")){
                 String a = gs.toJson(obj.get("obj"));
                 ObjectMapper objM = new ObjectMapper();

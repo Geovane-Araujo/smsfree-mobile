@@ -1,6 +1,8 @@
 package com.example.sendsms.models;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     public Boolean add = true;
     public Boolean edit = false;
@@ -9,6 +11,15 @@ public class Usuario {
     public String nome = "";
     public String login = "";
     public String senha = "";
+    public String token = "";
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Boolean getAdd() {
         return add;
