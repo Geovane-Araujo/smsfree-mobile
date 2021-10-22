@@ -42,22 +42,20 @@ public class Registro extends AppCompatActivity {
         Gson gson = new Gson();
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         ProgressDialog loading = new ProgressDialog(this);
-        loading.setMessage("um minutinho, estamos criando sua conta");
 
-
-        loading.show();
-
-        TextView login = (TextView)findViewById(R.id.txt_registro_email);
-        TextView nome = (TextView)findViewById(R.id.txt_registro_nome);
-        TextView senha = (TextView)findViewById(R.id.txt_registro_senha);
-
-
-
-        us.setNome(nome.getText().toString());
-        us.setSenha(senha.getText().toString());
-        us.setLogin(login.getText().toString());
+        loading.setMessage("Um minutinho, estamos criando sua conta");
+        //loading.show();
 
         try{
+
+            TextView login = (TextView)findViewById(R.id.txt_registro_email);
+            TextView nome = (TextView)findViewById(R.id.txt_registro_nome);
+            TextView senha = (TextView)findViewById(R.id.txt_registro_senha);
+
+            us.setNome(nome.getText().toString());
+            us.setSenha(senha.getText().toString());
+            us.setLogin(login.getText().toString());
+
             String json = gson.toJson(us);
             OkHttpClient client = new OkHttpClient();
             MediaType mediaType = MediaType.parse("application/json");
@@ -71,6 +69,7 @@ public class Registro extends AppCompatActivity {
             String res = response.body().string();
             Map obj = gson.fromJson(res,Map.class);
 
+            loading.dismiss();
             if(obj.get("ret").equals("success")){
                 finish();
             }
@@ -83,6 +82,5 @@ public class Registro extends AppCompatActivity {
             alert.setMessage(ex.getMessage());
             alert.show();
         }
-
     }
 }
